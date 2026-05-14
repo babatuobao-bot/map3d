@@ -138,10 +138,63 @@ const Car = () => {
 
   return (
     <>
-      <mesh ref={carRef} position={[0, 0.5, 0]}>
-        <boxGeometry args={[0.2, 0.2, 0.4]} />
-        <meshStandardMaterial color="orange" />
-      </mesh>
+      <group ref={carRef} position={[0, 0.25, 0]}>
+        {/* 车身底盘 */}
+        <mesh position={[0, 0.08, 0]}>
+          <boxGeometry args={[0.3, 0.08, 0.6]} />
+          <meshStandardMaterial color="#1a1a1a" />
+        </mesh>
+        {/* 车身主体 - 低趴宽体 */}
+        <mesh position={[0, 0.18, -0.02]}>
+          <boxGeometry args={[0.34, 0.12, 0.48]} />
+          <meshStandardMaterial color="#d4a017" metalness={0.3} roughness={0.4} />
+        </mesh>
+        {/* 驾驶舱 - 后置倾斜 */}
+        <mesh position={[0, 0.28, 0.06]} rotation={[0.15, 0, 0]}>
+          <boxGeometry args={[0.26, 0.10, 0.18]} />
+          <meshStandardMaterial color="#1a1a1a" metalness={0.5} roughness={0.3} />
+        </mesh>
+        {/* 前挡风 - 倾斜 */}
+        <mesh position={[0, 0.30, -0.05]} rotation={[0.45, 0, 0]}>
+          <boxGeometry args={[0.25, 0.02, 0.1]} />
+          <meshStandardMaterial color="#87ceeb" metalness={0.8} roughness={0.1} />
+        </mesh>
+        {/* 后挡风 */}
+        <mesh position={[0, 0.28, 0.16]} rotation={[-0.3, 0, 0]}>
+          <boxGeometry args={[0.25, 0.02, 0.08]} />
+          <meshStandardMaterial color="#87ceeb" metalness={0.8} roughness={0.1} />
+        </mesh>
+        {/* 尾翼 */}
+        <mesh position={[0, 0.26, 0.22]}>
+          <boxGeometry args={[0.30, 0.02, 0.04]} />
+          <meshStandardMaterial color="#111" />
+        </mesh>
+        {/* 前大灯 */}
+        <mesh position={[0.10, 0.18, -0.24]}>
+          <boxGeometry args={[0.08, 0.04, 0.02]} />
+          <meshStandardMaterial color="#ffffcc" emissive="#ffffcc" emissiveIntensity={2} />
+        </mesh>
+        <mesh position={[-0.10, 0.18, -0.24]}>
+          <boxGeometry args={[0.08, 0.04, 0.02]} />
+          <meshStandardMaterial color="#ffffcc" emissive="#ffffcc" emissiveIntensity={2} />
+        </mesh>
+        {/* 尾灯 */}
+        <mesh position={[0.10, 0.18, 0.24]}>
+          <boxGeometry args={[0.08, 0.03, 0.02]} />
+          <meshStandardMaterial color="#ff2222" emissive="#ff2222" emissiveIntensity={1.5} />
+        </mesh>
+        <mesh position={[-0.10, 0.18, 0.24]}>
+          <boxGeometry args={[0.08, 0.03, 0.02]} />
+          <meshStandardMaterial color="#ff2222" emissive="#ff2222" emissiveIntensity={1.5} />
+        </mesh>
+        {/* 四个轮子 */}
+        {[[0.17, -0.17], [-0.17, -0.17], [0.17, 0.17], [-0.17, 0.17]].map(([x, z], i) => (
+          <mesh key={i} position={[x, 0.02, z]} rotation={[0, 0, Math.PI / 2]}>
+            <cylinderGeometry args={[0.06, 0.06, 0.04, 16]} />
+            <meshStandardMaterial color="#111" roughness={0.8} />
+          </mesh>
+        ))}
+      </group>
       {!thirdMode && <OrbitControls />}
     </>
   );

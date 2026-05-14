@@ -222,15 +222,15 @@ export function MapComponent({
 
       <MapContainer
         center={[36.67, 117.02]}
-        zoom={13}
+        zoom={15}
+        attributionControl={false}
         style={{
           height: "70vh",
           width: "100%",
         }}
       >
         <TileLayer
-          attribution='&copy; 高德地图'
-          url="https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}"
+          url="https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=7&x={x}&y={y}&z={z}"
           subdomains={["1", "2", "3", "4"]}
         />
         <RectangleSelector
