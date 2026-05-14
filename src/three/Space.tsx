@@ -157,7 +157,7 @@ function Building({
         <Html position={[hoverPos.x, hoverPos.y + extrudeSettings.depth + 0.5, hoverPos.z]} center>
           <div
             role="dialog"
-            aria-label={tags.name || "Building Information"}
+            aria-label={tags.name || "建筑信息"}
             style={{
               color: "#000000",
               backgroundColor: "#ffffff96",
@@ -181,7 +181,7 @@ function Building({
                 marginBottom: tags.name ? "8px" : "4px",
               }}
             >
-              {tags.name || "Building Information"}
+              {tags.name || "建筑信息"}
             </div>
             {["building", "height", "building:levels", "amenity", "denomination"].map(
               (key) =>
@@ -197,20 +197,20 @@ function Building({
                   >
                     <span style={{ fontWeight: "500", color: "#5f6368" }}>
                       {key === "building"
-                        ? "Type"
+                        ? "类型"
                         : key === "height"
-                        ? "Height"
+                        ? "高度"
                         : key === "building:levels"
-                        ? "Levels"
+                        ? "楼层"
                         : key === "amenity"
-                        ? "Facility"
+                        ? "设施"
                         : key === "denomination"
-                        ? "Denomination"
+                        ? "教派"
                         : key.replace(/_/g, " ")}
                       :
                     </span>
                     <span style={{ textTransform: "capitalize" }}>
-                      {key === "height" ? `${tags[key]} m` : tags[key]}
+                      {key === "height" ? `${tags[key]} 米` : tags[key]}
                     </span>
                   </div>
                 )
@@ -230,7 +230,7 @@ function Building({
                 }}
               >
                 <div style={{ fontWeight: "500", marginBottom: "4px", color: "#5f6368" }}>
-                  Address
+                  地址
                 </div>
                 <div style={{ marginLeft: "4px", fontSize: "12px", color: "#5f6368" }}>
                   {[
@@ -278,7 +278,7 @@ function Building({
                   }}
                   onClick={() => setShowAdditionalInfo(!showAdditionalInfo)}
                 >
-                  Additional Information
+                  其他信息
                   <span>{showAdditionalInfo ? "▲" : "▼"}</span>
                 </div>
                 {showAdditionalInfo && (
@@ -385,7 +385,7 @@ function Building({
                   }}
                   onClick={() => setShowTranslations(!showTranslations)}
                 >
-                  Name Translations
+                  名称翻译
                   <span>{showTranslations ? "▲" : "▼"}</span>
                 </div>
                 {showTranslations && (

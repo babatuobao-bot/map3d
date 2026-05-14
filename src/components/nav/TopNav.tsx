@@ -85,7 +85,7 @@ export function TopNav({ step }: { step: number }) {
           })}
         >
           <NavButton isShow={step >= 1} onClick={() => setOpenModal(true)}>
-            Options
+            选项
           </NavButton>
 
           {!isMobile && (
@@ -95,14 +95,14 @@ export function TopNav({ step }: { step: number }) {
                   isShow={step == 2}
                   onClick={() => setThirdMode(false)}
                 >
-                  Disable Car
+                  关闭驾车
                 </NavButton>
               ) : (
                 <NavButton
                   isShow={step == 2}
                   onClick={() => setThirdMode(true)}
                 >
-                  Car Mode
+                  驾车模式
                 </NavButton>
               )}
             </>
@@ -112,7 +112,7 @@ export function TopNav({ step }: { step: number }) {
 
       <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
         <Column gap="0.5rem">
-          <Title>Options </Title>
+          <Title>选项</Title>
         </Column>
       </Modal>
     </>

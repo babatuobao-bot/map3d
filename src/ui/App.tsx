@@ -184,10 +184,9 @@ function App() {
       <FullscreenModal isOpen={steps[step] == "front"}>
         <Column gap="1rem">
           <Column gap="0.5rem">
-            <Title>Generate 3d map</Title>
+            <Title>生成 3D 地图</Title>
             <Description>
-              Tools to create 3D maps based on maps and export them in GLB
-              format
+              在地图上框选区域，生成 3D 建筑场景，支持导出 GLB 格式
             </Description>
           </Column>
           <MapComponent
@@ -200,10 +199,9 @@ function App() {
       <FullscreenModal isOpen={steps[step] == "processing"}>
         <Column gap="1rem">
           <Column gap="0.5rem">
-            <Title>Processing</Title>
+            <Title>数据处理</Title>
             <Description>
-              Click Next Step to fetch building information. Once loaded, click
-              Next Step again to view the 3D scene.
+              点击下一步获取建筑数据，加载完成后再次点击查看 3D 场景
             </Description>
 
             <BuildingHeights
@@ -215,7 +213,7 @@ function App() {
       </FullscreenModal>
 
       <PrevButton isShow={step != 0} onClick={handleClickPrevStep}>
-        <ChevronLeft css={IconSize} /> Prev Step
+        <ChevronLeft css={IconSize} /> 上一步
       </PrevButton>
 
       <NextButton
@@ -231,23 +229,23 @@ function App() {
                 css({ animation: `${spinAnimation} 1s linear infinite` }),
               ]}
             />
-            Fetching...
+            加载中...
           </>
         ) : (
           <>
-            Next Step <ChevronRight css={IconSize} />
+            下一步 <ChevronRight css={IconSize} />
           </>
         )}
       </NextButton>
 
       <NextButton isShow={step == 2} onClick={handleClickExport}>
-        Export GLB <Download css={IconSize} />
+        导出 GLB <Download css={IconSize} />
       </NextButton>
 
       <Modal isOpen={isWarnModal} onClose={() => setIsWarnModal(false)}>
         <Column gap="0.5rem">
-          <Title>The area is too big </Title>
-          <Description>Do you want to proceed?</Description>
+          <Title>所选区域过大</Title>
+          <Description>是否继续？</Description>
           <Button
             isShow={step != 2}
             disabled={isNextButtonDisabled}
@@ -256,18 +254,18 @@ function App() {
               setIsWarnModal(false);
             }}
           >
-            Next Step <ChevronRight css={IconSize} />
+            下一步 <ChevronRight css={IconSize} />
           </Button>
         </Column>
       </Modal>
 
       <Modal isOpen={isExportModal} onClose={() => setIsExportModal(false)}>
         <Column gap="0.5rem">
-          <Title>Export</Title>
+          <Title>导出</Title>
 
           <Row gap="0.5rem">
             <Button isShow={true} onClick={exportFile}>
-              GLB Download <Download css={IconSize} />
+              GLB 下载 <Download css={IconSize} />
             </Button>
 
             {/* {isFleetLogin ? (

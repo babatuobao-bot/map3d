@@ -190,7 +190,7 @@ export function MapComponent({
           })}
           onClick={handleClickRemoveBox}
         >
-          <CircleMinus css={IconSize} /> Remove Box
+          <CircleMinus css={IconSize} /> 清除框选
         </button>
 
         <button
@@ -216,7 +216,7 @@ export function MapComponent({
           })}
           onClick={handleClickSwitchDrag}
         >
-          {isDrag ? <SelectBox /> : "Back to Drag"}
+          {isDrag ? <SelectBox /> : "返回拖拽"}
         </button>
       </div>
 
@@ -249,7 +249,7 @@ function SelectBox() {
   return (
     <>
       <MousePointerClick css={IconSize} />
-      <span>Select Box</span>
+      <span>框选区域</span>
     </>
   );
 }

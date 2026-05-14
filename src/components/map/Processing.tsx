@@ -40,7 +40,7 @@ export function BuildingHeights({
             })}
             size={16}
           />
-          Fetching building information...
+          正在获取建筑信息...
         </div>
       )}
       <ul
@@ -54,9 +54,9 @@ export function BuildingHeights({
       >
         {buildings.map((b) => (
           <li key={b.id}>
-            <div>Building {b.id}</div>
-            <div>Height: {b.tags.height || "No height info"}</div>
-            <div>Location/Shape:</div>
+            <div>建筑 {b.id}</div>
+            <div>高度: {b.tags.height || "无高度数据"}</div>
+            <div>位置/轮廓:</div>
             {b.geometry ? (
               <ul>
                 {b.geometry.map((pt, index) => (
@@ -66,9 +66,9 @@ export function BuildingHeights({
                 ))}
               </ul>
             ) : (
-              <div>No geometry info</div>
+              <div>无几何信息</div>
             )}
-            <div>Other Tags: {JSON.stringify(b.tags)}</div>
+            <div>其他标签: {JSON.stringify(b.tags)}</div>
           </li>
         ))}
       </ul>
